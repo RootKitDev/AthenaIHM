@@ -1,0 +1,40 @@
+{% extends "AthenaUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Demande d'habilitation{% endblock %}
+
+{% block athena_body %}
+	<div id="login-page" class="row">
+		<div class="col s12 z-depth-4 card-panel">
+			<div id="login-page" class="row">
+				<form class="login-form form-horizontal form-bordered" action="{{ path('fos_user_registration_register') }}" method="post" id="form-register register" novalidate="novalidate" style="display: block;">
+					<div class="row">
+						<div class="input-field col s12 center">
+							<p class="center login-form-text">Demande d'habilitation</p>
+						</div>
+					</div>
+					<div class="form-group" id="fos_user_registration_form">
+						<div class="col-xs-6">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+								{{ form_widget(form.email, { 'attr': {'class': 'form-control input-lg', 'placeholder': 'form.email'|trans } }) }}
+								{{ form_errors(form.email) }}
+							</div>
+						</div>
+						<div class="col-xs-6">
+							{{ form_widget(form.username, { 'attr': {'class': 'form-control input-lg', 'placeholder': 'form.username'|trans } }) }}
+							{{ form_errors(form.username) }}
+						</div>
+					</div>
+					{# [...] #}
+					{{ form_rest(form) }}
+					<div class="row">
+						<div class="input-field col s12">
+							<p><input class="btn waves-effect waves-light col s12 blue darken-1" type="submit" value="Envoyer la Demande" /></p>
+							<a href="{{ path('athena_core') }}">Retour à l'index</a></p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

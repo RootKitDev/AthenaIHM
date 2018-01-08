@@ -1,0 +1,44 @@
+{% extends "AthenaIhmBundle::layout.html.twig" %}
+
+{% block athena_body %}
+
+	{{ include("AthenaIhmBundle:Main:header.html.twig") }}
+
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+	{% else %}
+		<a href="{{ path('fos_user_security_login') }}">Connexion</a>
+	{% endif %}
+
+	<div class="section center z-depth-3">
+		<h5>Import de Configuration</h5>
+	</div>
+	<br/>
+
+	<div class="container">
+		<div class="row">
+			<div class="card">
+				<div class="card-panel black-text">
+					<form method="post" action="{{ path('athena_upload') }}" enctype="multipart/form-data" >
+						<div class="file-field input-field">
+
+							<div class="btn indigo accent-3">
+								<span>Parcourir ... </span>
+								<input type="file" id="form_conf" name="form[form_conf]" >
+							</div>
+
+							<div class="file-path-wrapper">
+								<input placeholder=": Fichier de conf Athena (max. 1 Mo)" class="file-path validate black-text" type="text" ><br />
+								<label for="form_conf"></label>
+							</div>
+						</div>
+							<button class="offset-s6 btn waves-effect waves-light green" type="submit" id="form_submitted" name="form_submitted">Envoyer
+								<i class="small material-icons right">send</i>
+							</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Athena{% endblock %}</title>
+		<link rel="shortcut icon" href="{{ asset('file/ico/favicon.ico') }}">
+
+		{% block stylesheets %}
+			<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css">
+			<link href="{{ asset('framework/css/main.css') }}" rel="stylesheet">
+			<link href="{{ asset('framework/css/style.css') }}" rel="stylesheet">
+			<link href="{{ asset('framework/css/custom.css') }}" rel="stylesheet">
+		{% endblock %}
+
+		{% block javascripts %}
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script src="{{ asset('framework/js/main.js') }}"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		{% endblock %}
+	</head>
+	<body>
+		{% block athena_core %}
+		{% endblock %}
+	</body>
+{% block athena_footer %}
+	<footer class="page-footer blue darken-3">
+		<div class="container">
+			<div class="row">
+				<div class="col 7 offset-6 s6">
+					<h5 class="white-text">Liens</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="mailto:rootkit.dev@gmail.com">rootkit.dev@gmail.com</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/RootKitDev/">GitHub/RootKitDev</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright indigo darken-1">
+			<div class="container">
+				© MIT RootKit {{ 'now'|date('Y') }} - {{ 'now'|date_modify("+1 year")|date('Y') }}
+			</div>
+		</div>
+	</footer>
+{% endblock %}
+</html>

@@ -1,0 +1,111 @@
+{% extends "AthenaIhmBundle::layout.html.twig" %}
+
+{% block athena_body %}
+
+	{{ include("AthenaIhmBundle:Main:header.html.twig") }}
+
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+	{% else %}
+		<a href="{{ path('fos_user_security_login') }}">Connexion</a>
+	{% endif %}
+
+	<div class="section center z-depth-3">
+		<h5>Fréquence des Sauvegardes</h5>
+	</div>
+	<br/>
+
+{#{ FlagHi2 }#}
+
+	<div class="container">
+		<div class="z-depth-1" name="table">
+			<table>
+				<thead  class="z-depth-2">
+					<tr>
+						<th data-field="date">Mensuel (Full)</th>
+						<th data-field="date">Hebdomadaire (Incrémentiel)</th>
+						<th data-field="date">Hebdomadaire (Full)</th>
+						<th data-field="date">Journalière (Incrémentiel)</th>
+						<th data-field="date">Exeptionnelle (Full)</th>
+						<th data-field="date">SQL</th>
+						<th data-field="date"><strong>DEPLANIFIEES</stong></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+					{% if FlagDP is empty %}
+						<td>
+						{% if FlagM is empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+						{% if FlagHi is empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+						{% if FlagHf is empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+						{% if FlagJ is empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+						{% if FlagEx is not empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+						{% if FlagSQL is empty %}
+							<i class="small material-icons green-text">done</i>
+						{% else %}
+							<i class="small material-icons red-text">clear</i>
+						{% endif %}
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+					{% else %}
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons red-text">clear</i>
+						</td>
+						<td>
+							<i class="small material-icons green-text">done</i>
+						</td>
+					{% endif %}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

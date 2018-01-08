@@ -1,0 +1,92 @@
+{% if Etat == "OK" %}
+	<a class='dropdown-button btn green z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='OK' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li><a href="./include/options/cksums.php?month=&day=" onclick="window.open(this.href); return false;">CkSums</a></li>
+		<li><a href="./include/options/size.php?month=&day=" onclick="window.open(this.href); return false;">Volumétrie</a></li>
+	</ul>
+
+{% elseif Etat == "OK-NE" %}
+	<a class='dropdown-button btn light-blue darken-4 z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='OK-NE' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li><a href="./include/options/cksums.php?month=&day=" onclick="window.open(this.href); return false;">CkSums</a></li>
+		<li><a href="./include/options/size.php?month=&day=" onclick="window.open(this.href); return false;">Volumétrie</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_export.php?month=&day=">Relancer l'export</a></li>
+	</ul>
+
+{% elseif Etat == "PS" %}
+	<a class='dropdown-button btn cyan z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='PS' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+	</ul>
+
+{% elseif Etat == "KT" %}
+	<a class='dropdown-button btn orange z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='KT' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_export.php?month=&day=">Relancer l'export</a></li>
+	</ul>
+
+{% elseif Etat == "EC" %}
+	<a class='dropdown-button btn white black-text z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='EC' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+	</ul>
+
+{% elseif Etat == "DP" %}
+	<a class='dropdown-button btn orange z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='DP' class='dropdown-content'>
+		<li><a href="#" >Réactiver les Sauvegardes</a></li>
+	</ul>
+
+{% elseif Etat == "KO" %}
+	<a class='dropdown-button btn red z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='KO' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_save.php?month=&day=">Relancer la Sauvegarde</a></li>
+	</ul>
+
+{% elseif Etat == "SQL_OK" %}
+	<a class='dropdown-button btn green z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='SQL_OK' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li><a href="./include/options/cksums.php?month=&day=" onclick="window.open(this.href); return false;">CkSums</a></li>
+		<li><a href="./include/options/size.php?month=&day=" onclick="window.open(this.href); return false;">Volumétrie</a></li>
+	</ul>
+
+{% elseif Etat == "SQL_OK-NE" %}
+	<a class='dropdown-button btn light-blue darken-4 z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='SQL_OK-NE' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li><a href="./include/options/cksums.php?month=&day=" onclick="window.open(this.href); return false;">CkSums</a></li>
+		<li><a href="./include/options/size.php?month=&day=" onclick="window.open(this.href); return false;">Volumétrie</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_export.php?month=&day=">Relancer l'export</a></li>
+	</ul>
+
+{% elseif Etat == "SQL_KT" %}
+	<a class='dropdown-button btn orange z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='SQL_KT' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_export.php?month=&day=">Relancer l'export</a></li>
+	</ul>
+
+{% elseif Etat == "SQL_KO" %}
+	<a class='dropdown-button btn red z-depth-1' href='#' data-activates='{{ Etat }}'>{{ Etat }}</a>
+	<ul id='SQL_KO' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+		<li class="divider"></li>
+		<li><a href="./include/options/restart_save.php?month=&day=">Relancer la Sauvegarde</a></li>
+	</ul>
+
+{% elseif Etat == "NULL" %}
+	<a class='dropdown-button btn cyan z-depth-1' href='#' data-activates='{{ Etat }}'>Entrée Vide</a>
+	<ul id='NULL' class='dropdown-content'>
+		<li><a href="./include/options/logs.php?month=&day=" onclick="window.open(this.href); return false;">Logs</a></li>
+	</ul>
+{% endif %}

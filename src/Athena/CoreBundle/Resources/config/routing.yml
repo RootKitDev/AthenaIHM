@@ -1,0 +1,71 @@
+athena_core:
+    path: /
+    defaults: { _controller: AthenaIhmBundle:Main:index }
+
+athena_registrer:
+    path: /register
+    defaults: { _controller: AthenaUserBundle:Register:register }
+
+athena_freq:
+    path: /frequecy
+    defaults: { _controller: AthenaIhmBundle:Main:freq }
+
+athena_excep:
+    path: /exceptional
+    defaults: { _controller: AthenaIhmBundle:Main:excep }
+
+athena_get_excep:
+    path: /get_exceptional
+    defaults: { _controller: AthenaIhmBundle:Main:getExcep }
+
+athena_include:
+    path: /include
+    defaults: { _controller: AthenaIhmBundle:Main:include }
+
+athena_exclude:
+    path: /exclude
+    defaults: { _controller: AthenaIhmBundle:Main:exclude }
+
+athena_set_include:
+    path: /set_include
+    defaults: { _controller: AthenaIhmBundle:Main:setInclude }
+
+athena_set_exclude:
+    path: /set_exclude
+    defaults: { _controller: AthenaIhmBundle:Main:setExclude }
+
+athena_param:
+    path: /parametres
+    defaults: { _controller: AthenaIhmBundle:Main:param }
+
+athena_upDown:
+    path: /up-Down
+    defaults: { _controller: AthenaIhmBundle:Main:upDown }
+
+athena_set_param:
+    path: /set_parametres
+    defaults: { _controller: AthenaIhmBundle:Main:setParam }
+
+athena_import:
+    path: /import
+    defaults: { _controller: AthenaIhmBundle:Main:import }
+
+athena_export:
+    path: /export
+    defaults: { _controller: AthenaIhmBundle:Main:export }
+
+athena_download:
+    path: /download
+    defaults: { _controller: AthenaIhmBundle:Main:download }
+
+athena_upload:
+    path: /upload
+    defaults: { _controller: AthenaIhmBundle:Main:upload }
+
+athena_resto:
+    path: /restauration
+    defaults: { _controller: AthenaIhmBundle:Main:resto }
+
+athena_goresto:
+    path: /launchrestauration
+    defaults: { _controller: AthenaIhmBundle:Main:restauration }

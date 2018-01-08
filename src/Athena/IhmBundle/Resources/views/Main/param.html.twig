@@ -1,0 +1,116 @@
+{% extends "AthenaIhmBundle::layout.html.twig" %}
+
+{% block athena_body %}
+
+	{{ include("AthenaIhmBundle:Main:header.html.twig") }}
+
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+	{% else %}
+		<a href="{{ path('fos_user_security_login') }}">Connexion</a>
+	{% endif %}
+
+	{% if FlagM is empty %}
+		{% set checkM = "checked" %}
+	{% else %}
+		{% set checkM = "" %}
+	{% endif %}
+
+	{% if FlagHi is empty %}
+		{% set checkHi="checked" %}
+	{% else %}
+		{% set checkHi = "" %}
+	{% endif %}
+
+	{% if FlagHf is empty %}
+		{% set checkHf = "checked" %}
+	{% else %}
+		{% set checkHf = "" %}
+	{% endif %}
+
+	{% if FlagJ is empty %}
+		{% set checkJ = "checked" %}
+	{% else %}
+		{% set checkJ = "" %}
+	{% endif %}
+
+	<div class="section center z-depth-3">
+		<h5>Politique de Sauvegardes</h5>
+	</div>
+
+	{% if FlagDP is empty %}
+
+	<div class="container">
+		<div class="col s12 m4 l6">
+			<div class="card">
+				<div class="card-content black-text">
+					<form metod="post" action="{{ path('athena_set_param') }}"> 
+						<input type="checkbox" id="SaveM" name="SaveM" {{ checkM }} /><label for="SaveM">Activée les sauvergardes Mensuelles (Full)</label>
+						<br />
+						<input type="checkbox" id="SaveHi" name="SaveHi" {{ checkHi }} /><label for="SaveHi">Activée les sauvergardes Hebdomadaire (Incrémentiel)</label>
+						<br />
+						<input type="checkbox" id="SaveHf" name="SaveHf" {{ checkHf }} /><label for="SaveHf">Activée les sauvergardes Hebdomadaire (Full)</label>
+						<br />
+						<input type="checkbox" id="SaveJ" name="SaveJ" {{ checkJ }} /><label for="SaveJ">Activée les sauvergardes Journamière (Incrémentiel)</label>
+						<br />
+				</div>
+						<div class="center card-action">
+							<button class="btn waves-effect waves-light green" type="submit" name="action">Valider le changement
+								<i class="small material-icons right">send</i>
+							</button>
+							<a class="waves-effect waves-light btn red" href="{{ path('athena_core') }}">Annuler l'action</a>
+						</div>
+					</form>
+			</div>
+		</div>
+
+	{% else %}
+
+	<div class="container">
+		<div class="col s12 m4 l6">
+			<div class="card">
+				<div class="card-content black-text">
+					<input type="checkbox" disabled readonly name="SaveM" ><label for="SaveM">Activée les sauvergardes Mensuelles (Full)</label>
+					<br />
+					<input type="checkbox" disabled readonly name="SaveHi" ><label for="SaveHi">Activée les sauvergardes Hebdomadaire (Incrémentiel)</label>
+					<br />
+					<input type="checkbox" disabled readonly name="SaveHf" ><label for="SaveHf">Activée les sauvergardes Hebdomadaire (Full)</label>
+					<br />
+					<input type="checkbox" disabled readonly name="SaveJ" ><label for="SaveJ">Activée les sauvergardes Journamière (Incrémentiel)</label>
+					<br />
+				</div>
+					<div class="center card-action">
+						<a class="waves-effect waves-light btn red" href="{{ path('athena_core') }}">Retour à l'index</a>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	{% endif %}
+
+
+	<div class="container">
+		<div class="col s12 m4 l6">
+			<div class="card">
+				<div class="card-content black-text">
+					<form metod="post" action="{{ path('athena_upDown') }}" > 
+				{% if FlagDP is not empty %}
+						<input type="checkbox" id="UpSave" name="UpSave" /><label for="UpSave">Réactiver les Sauvegardes</label>
+				{% else %}
+						<input type="checkbox" id="DownSave" name="DownSave" /><label for="DownSave">Désactiver les Sauvegardes</label>
+				{% endif %}
+						<br />
+						<br />
+						<div class="center card-action">
+							<button class="btn waves-effect waves-light green" type="submit" name="action">Valider le changement
+								<i class="small material-icons right">send</i>
+							</button>
+							<a class="waves-effect waves-light btn red" href="{{ path('athena_core') }}">Annuler l'action</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

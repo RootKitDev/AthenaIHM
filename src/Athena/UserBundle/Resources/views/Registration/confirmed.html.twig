@@ -1,0 +1,14 @@
+{#% extends "@FOSUser/layout.html.twig" %#}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends "AthenaUserBundle::layout.html.twig" %}
+
+{% block athena_body %}
+	<meta http-equiv="refresh" content="3; URL={{ path('athena_core') }}">
+	<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+	<p>
+		Vous allez etres redirigé dans 3 secondes
+		Si ce n'est pas le cas <a href="{{ path('athena_core') }}">Cliquez ici</a>
+	</p>
+{% endblock  %}

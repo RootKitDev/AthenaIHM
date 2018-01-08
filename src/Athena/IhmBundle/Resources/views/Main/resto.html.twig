@@ -1,0 +1,66 @@
+{% extends "AthenaIhmBundle::layout.html.twig" %}
+
+{% block athena_body %}
+
+	{{ include("AthenaIhmBundle:Main:header.html.twig") }}
+
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		Connecté en tant que {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+	{% else %}
+		<a href="{{ path('fos_user_security_login') }}">Connexion</a>
+	{% endif %}
+
+	<div class="section center  z-depth-3">
+		<h5>Restauration</h5>
+	</div>
+
+{% if serviceIndispo is defined %}
+	<div class="row margin">
+		<div class="col s12">
+			<div class="card-panel center red">
+				<div class="white-text">
+					{{ serviceIndispo }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+
+	{% for message in app.flashes('notice') %}
+		<div class="row margin">
+			<div class="col s12">
+				<div class="card-panel center red">
+					<div class="white-text">
+						{{ message }}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="container">
+		<div class="row">
+			<div class="card-panel">
+				<p>Le Dossier Athena ne peux etre restauré.</p>
+				<form method="post" action="{{ path('athena_goresto') }}">
+					<p>Quelle sauvegarde voulez vous restaurer ?</p>
+					<input placeholder="Sélectionner la date de la sauvegarde"type="date" class="datepicker" name ="TargetDate">
+					<script>
+						$('.datepicker').pickadate({
+							selectMonths: true,
+							selectYears: 15
+						});
+					</script>
+					<button class="btn waves-effect waves-light green" type="submit" name="action">Go
+						<i class="small material-icons right">send</i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<form method="post" action="./functions/restauration.php">
+		<input type="checkbox" id="1" name="1"  /><label for="1">/path/to/Folder1			<input type="text" size="30" value="/path/to/remote/Folder1"/></label><br />
+		<input type="submit" value="Submit">
+	</form>
+{% endif %}
+{% endblock %}

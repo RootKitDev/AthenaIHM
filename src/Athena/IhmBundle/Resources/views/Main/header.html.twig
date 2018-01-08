@@ -1,0 +1,15 @@
+{{ include("AthenaIhmBundle:Other:dropdown-header.html.twig") }}
+
+<nav class='blue darken-3'>
+	<ul id="nav-mobile" class="hide-on-med-and-down">
+		<li><a class='dropdown-button btn indigo darken-1 z-depth-2' href='#' data-activates='Save'>Sauvegardes</a></li>
+		<li><a class='dropdown-button btn indigo darken-1 z-depth-2' href='#' data-activates='Param'>Paramètrage</a></li>
+		<li><a class='dropdown-button btn indigo darken-1 z-depth-2' href='#' data-activates='Conf'>Configuration</a></li>
+		<li><a class='dropdown-button btn indigo darken-1 z-depth-2' href='{{ path('athena_resto') }}' data-activates='resto'>Restauration</a></li>
+		<li><a class='dropdown-button btn indigo darken-1 z-depth-2' href='{{ path('fos_user_profile_show') }}' data-activates='account'>Compte</a></li>
+	</ul>
+
+	<ul id="nav-mobile" class="right hide-on-med-and-down">
+		<li><a href="#">DashBoard</a></li>
+	</ul>
+</nav>
